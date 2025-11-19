@@ -1,0 +1,17 @@
+[build]
+  # Comando de build que instala deps en frontend y construye. Ajusta si usas otro framework.
+  command = "npm --prefix frontend install && npm --prefix frontend run build"
+  # Carpeta a publicar — por defecto Create React App genera `build`.
+  publish = "frontend/build"
+
+[build.environment]
+  NODE_ENV = "production"
+
+[[redirects]]
+  # Regla para SPA (redirige todas las rutas a index.html)
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Nota: si tu frontend usa otro directorio de salida (por ejemplo `dist`),
+# cambia `publish` apropiadamente a `frontend/dist`.
